@@ -1,0 +1,61 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Libros</title>
+    <style>
+        body {
+            margin: 0;
+        }
+        h2 {
+            font-family: arial;
+            background: #ecf0f1;
+            color: #2980b9;
+            margin: 0;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Template con Backbone.js</h2>
+
+<div class="app"></div>
+
+<script src="{% static "js/jquery.js" %}"></script>
+<script src="{% static "js/underscore.js" %}"></script>
+<script src="{% static "js/backbone.js" %}"></script>
+
+<script src="{% static "js/csrf.js" %}"></script>
+
+<script>
+    // Modelo
+    var Libro = Backbone.Model.extend();
+
+    // Coleccion
+    var Libros = Backbone.Collection.extend({
+        url: '/api/libros/',
+        model: Libro
+    });
+
+    /*
+    var c = new Libros()
+    c.fetch()
+    c.toJSON()
+
+    var l1 = c.create({ titulo: "abc", autor: "xyz" })
+    c.toJSON()
+
+    var l2 = c.get(4)
+    l2.set('titulo', 'Mi nuevo libro')
+    l2.save()
+
+    var l3 = c.get(4)
+    l3.todo2.destroy()
+    */
+</script>
+
+</body>
+</html>
